@@ -103,14 +103,26 @@ void RoutePlanner::AStarSearch() {
     RouteModel::Node *current_node = start_node;
 
     // TODO: Implement your solution here.
-    while (current_node != this->end_node) {
+    open_list.push_back(current_node);
+    bool path_found = false;
+    while (!open_list.empty()) {
         // Add unvisited neighbors to open_list
         AddNeighbors(current_node);
 
         // Retrieve the next node from open_list
         current_node = NextNode();
+
+        if (current_node == end_node) {
+            path_found = true;
+            break;
+        }
     }
 
-    // Path found, construct the path from the final node
-    m_Model.path = ConstructFinalPath(current_node);
+    if (path_found) {
+        // Path found, construct the path from the final node
+        m_Model.path = ConstructFinalPath(current_node);
+    } else {
+        std::cout << "Path not found!\n";
+    }
+
 }
