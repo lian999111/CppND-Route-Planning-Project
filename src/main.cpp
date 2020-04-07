@@ -59,8 +59,8 @@ int main(int argc, const char **argv)
     std::cout << "Please enter the start and end coordinates:\n";
     std::cout << "Start X: "; std::cin >> start_x;
     std::cout << "Start Y: "; std::cin >> start_y;
-    std::cout << "Start X: "; std::cin >> end_x;
-    std::cout << "Start Y: "; std::cin >> end_y;
+    std::cout << "End X: "; std::cin >> end_x;
+    std::cout << "End Y: "; std::cin >> end_y;
 
 
     // Build Model.
